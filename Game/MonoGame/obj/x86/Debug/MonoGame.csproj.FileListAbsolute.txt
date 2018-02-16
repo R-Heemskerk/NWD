@@ -1,0 +1,30 @@
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\MonoGame.exe
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\MonoGame.pdb
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\nial\source\repos\NWD\Game\MonoGame\obj\x86\Debug\MonoGame.csprojResolveAssemblyReference.cache
+C:\Users\nial\source\repos\NWD\Game\MonoGame\obj\x86\Debug\MonoGame.csproj.CoreCompileInputs.cache
+C:\Users\nial\source\repos\NWD\Game\MonoGame\obj\x86\Debug\MonoGame.exe
+C:\Users\nial\source\repos\NWD\Game\MonoGame\obj\x86\Debug\MonoGame.pdb
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\Content\dice 1.xnb
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\Content\dice 2.xnb
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\Content\dice 3.xnb
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\Content\dice 4.xnb
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\Content\dice 5.xnb
+C:\Users\nial\source\repos\NWD\Game\MonoGame\bin\Windows\x86\Debug\Content\dice 6.xnb
