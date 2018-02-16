@@ -13,6 +13,7 @@ namespace MonoGame
         SpriteBatch spriteBatch;
         Dice dieSet = new Dice();
         KeyboardState prevStatekeyboard, curStatekeyboard;
+        MouseState prevStatemouse, curStatemouse;
 
         public Game1()
         {

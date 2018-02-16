@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/nial/source/repos/NWD/Game/MonoGame/Content/dice 6.gif</SourceFile>
-  <SourceTime>2018-02-09T09:16:53.8444722+01:00</SourceTime>
-  <DestFile>C:/Users/nial/source/repos/NWD/Game/MonoGame/Content/bin/Windows/dice 6.xnb</DestFile>
-  <DestTime>2018-02-09T09:18:09.127623+01:00</DestTime>
+  <SourceFile>C:/Users/nial/Documents/GitHub/NWD/Game/MonoGame/Content/dice 6.gif</SourceFile>
+  <SourceTime>2018-02-16T08:57:36.638008+01:00</SourceTime>
+  <DestFile>C:/Users/nial/Documents/GitHub/NWD/Game/MonoGame/Content/bin/Windows/dice 6.xnb</DestFile>
+  <DestTime>2018-02-16T09:11:28.2663818+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

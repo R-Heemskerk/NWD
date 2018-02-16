@@ -23,6 +23,8 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+**/obj/
+**/bin/
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -286,3 +288,8 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+Game/MonoGame/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.cache
+*.cache
+Game/MonoGame/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Game/MonoGame/obj/x86/Debug/MonoGame.csproj.CoreCompileInputs.cache
