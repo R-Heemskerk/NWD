@@ -32,6 +32,7 @@ namespace MonoGame
             die[3] = contentManager.Load<Texture2D>("dice 4");
             die[4] = contentManager.Load<Texture2D>("dice 5");
             die[5] = contentManager.Load<Texture2D>("dice 6");
+            
         }
 
         

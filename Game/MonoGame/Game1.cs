@@ -15,6 +15,8 @@ namespace MonoGame
         KeyboardState prevStatekeyboard, curStatekeyboard;
         MouseState prevStatemouse, curStatemouse;
 
+        Map map; 
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -32,6 +34,7 @@ namespace MonoGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            map = new Map();
 
             base.Initialize();
         }
@@ -44,6 +47,18 @@ namespace MonoGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            Tiles.Content = Content;
+
+            map.Generate(new int[,]{
+                {6,6,6,6,6,6,6},
+                {6,1,3,4,2,1,6},
+                {6,2,3,2,4,5,6},
+                {6,3,4,1,3,2,6},
+                {6,2,3,5,2,4,6},
+                {6,1,5,5,3,5,6},
+                {6,6,6,6,6,6,6},
+            },64);
+
             dieSet.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
@@ -87,7 +102,9 @@ namespace MonoGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
             spriteBatch.Begin();
+            map.Draw(spriteBatch);
             dieSet.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
