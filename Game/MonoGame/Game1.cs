@@ -9,6 +9,7 @@ namespace MonoGame
     /// </summary>
     public class Game1 : Game
     {
+       
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Dice dieSet = new Dice();
@@ -67,7 +68,7 @@ namespace MonoGame
             IsMouseVisible = true;
 
             btnPlay = new CButton(Content.Load<Texture2D>("Button"), graphics.GraphicsDevice);
-            btnPlay.setPosition(new Vector2(650, 375));
+            btnPlay.setPosition(new Vector2(600, 375));
 
             dieSet.LoadContent(Content);
             // TODO: use this.Content to load your game content here
@@ -97,18 +98,19 @@ namespace MonoGame
             switch (CurrentGameState)
             {
                 case GameState.MainMenu:
-                    if (btnPlay.isClicked == true) CurrentGameState = GameState.Playing;
+                    if (btnPlay.isClicked) CurrentGameState = GameState.Playing;
                     btnPlay.Update(mouse);
                     break;
 
                 case GameState.Playing:
+                    // If space bar is pressed in the current state and the previous state the space bar was not pressed then the dice are rolled.
+                    if (curStatekeyboard.IsKeyDown(Keys.Space) && prevStatekeyboard.IsKeyUp(Keys.Space))
+                        dieSet.Roll();
                     break;
             }
 
 
-            // If space bar is pressed in the current state and the previous state the space bar was not pressed then the dice are rolled.
-            if (curStatekeyboard.IsKeyDown(Keys.Space) && prevStatekeyboard.IsKeyUp(Keys.Space))
-                dieSet.Roll();
+            
             // TODO: Add your update logic here
 
 
@@ -122,7 +124,7 @@ namespace MonoGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
@@ -133,9 +135,9 @@ namespace MonoGame
                     break;
 
                 case GameState.Playing:
+                    dieSet.Draw(spriteBatch);
                     break;
             }
-            dieSet.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
