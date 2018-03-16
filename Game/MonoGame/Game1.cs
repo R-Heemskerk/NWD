@@ -9,11 +9,26 @@ namespace MonoGame
     /// </summary>
     public class Game1 : Game
     {
+       
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Dice dieSet = new Dice();
         KeyboardState prevStatekeyboard, curStatekeyboard;
-        MouseState prevStatemouse, curStatemouse;
+
+        enum GameState 
+        {
+            MainMenu,
+            Options,
+            Playing,
+        }
+        // Makes the current gamestate go to the menu
+        GameState CurrentGameState = GameState.MainMenu;
+
+        //Screensize adjustments (this is the standard resolution of my screen)
+        int screenWidth = 1366, screenHeight = 768;
+
+        CButton btnPlay;
+        
 
         Map map; 
 
@@ -46,7 +61,18 @@ namespace MonoGame
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            //screen stuff
+            graphics.PreferredBackBufferWidth = screenWidth;
+            graphics.PreferredBackBufferHeight = screenHeight;
+            graphics.ApplyChanges();
+            IsMouseVisible = true;
+
+            btnPlay = new CButton(Content.Load<Texture2D>("Button"), graphics.GraphicsDevice);
+            btnPlay.setPosition(new Vector2(600, 375));
+
             Tiles.Content = Content;
 
             map.Generate(new int[,]{
@@ -79,13 +105,27 @@ namespace MonoGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-
+            MouseState mouse = Mouse.GetState();
             curStatekeyboard = Keyboard.GetState();
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            // If space bar is pressed in the current state and the previous state the space bar was not pressed then the dice are rolled.
-            if (curStatekeyboard.IsKeyDown(Keys.Space) && prevStatekeyboard.IsKeyUp(Keys.Space))
-                dieSet.Roll();
+
+            switch (CurrentGameState)
+            {
+                case GameState.MainMenu:
+                    if (btnPlay.isClicked) CurrentGameState = GameState.Playing;
+                    btnPlay.Update(mouse);
+                    break;
+
+                case GameState.Playing:
+                    // If space bar is pressed in the current state and the previous state the space bar was not pressed then the dice are rolled.
+                    if (curStatekeyboard.IsKeyDown(Keys.Space) && prevStatekeyboard.IsKeyUp(Keys.Space))
+                        dieSet.Roll();
+                    break;
+            }
+
+
+            
             // TODO: Add your update logic here
 
 
@@ -99,11 +139,21 @@ namespace MonoGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
 
             // TODO: Add your drawing code here
 
             spriteBatch.Begin();
+            switch (CurrentGameState)
+            {
+                case GameState.MainMenu:
+                    btnPlay.Draw(spriteBatch);
+                    break;
+
+                case GameState.Playing:
+                    dieSet.Draw(spriteBatch);
+                    break;
+            }
             map.Draw(spriteBatch);
             dieSet.Draw(spriteBatch);
             spriteBatch.End();
