@@ -37,7 +37,7 @@ namespace MonoGame
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             curStatekeyboard = prevStatekeyboard = Keyboard.GetState();
-            
+            Tiles.Content = Content;
         }
 
         /// <summary>
@@ -65,6 +65,15 @@ namespace MonoGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //screen stuff
+            map.Generate(new int[,]{
+                {6,6,6,6,6,6,6},
+                {6,1,3,4,2,1,6},
+                {6,2,3,2,4,5,6},
+                {6,3,4,1,3,2,6},
+                {6,2,3,5,2,4,6},
+                {6,1,5,5,3,5,6},
+                {6,6,6,6,6,6,6},
+            }, 64);
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenHeight;
             graphics.ApplyChanges();
@@ -151,11 +160,11 @@ namespace MonoGame
                     break;
 
                 case GameState.Playing:
+                    map.Draw(spriteBatch);
                     dieSet.Draw(spriteBatch);
                     break;
             }
-            map.Draw(spriteBatch);
-            dieSet.Draw(spriteBatch);
+
             spriteBatch.End();
             base.Draw(gameTime);
         }
