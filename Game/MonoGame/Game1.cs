@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
 
 namespace MonoGame
 {
@@ -14,12 +15,15 @@ namespace MonoGame
         SpriteBatch spriteBatch;
         Dice dieSet = new Dice();
         KeyboardState prevStatekeyboard, curStatekeyboard;
+        Process Console;
 
         enum GameState 
         {
             MainMenu,
             Options,
             Playing,
+            Question,
+            Waiting,
         }
         // Makes the current gamestate go to the menu
         GameState CurrentGameState = GameState.MainMenu;
@@ -84,8 +88,6 @@ namespace MonoGame
 
             Tiles.Content = Content;
 
-
-
             dieSet.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
@@ -121,7 +123,29 @@ namespace MonoGame
                 case GameState.Playing:
                     // If space bar is pressed in the current state and the previous state the space bar was not pressed then the dice are rolled.
                     if (curStatekeyboard.IsKeyDown(Keys.Space) && prevStatekeyboard.IsKeyUp(Keys.Space))
+                    {
                         dieSet.Roll();
+                        CurrentGameState = GameState.Question;
+                    }
+                    break;
+
+                case GameState.Question:
+                    if (prevStatekeyboard.GetPressedKeys().Length <= 0 && curStatekeyboard.GetPressedKeys().Length > 0)
+                    {
+                        Console = Process.Start("QuestionConsole.exe");
+                        CurrentGameState = GameState.Waiting;
+                    }
+                    break;
+                case GameState.Waiting:
+                    if(Console.HasExited)
+                    {
+                        if (Console.ExitCode == 2)
+                        {}
+                        //yeey gewonnen
+                        else if (Console.ExitCode == 3)
+                        { }
+                            CurrentGameState = GameState.Playing;
+                    }
                     break;
             }
 
