@@ -13,7 +13,9 @@ namespace MonoGame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Dice dieSet = new Dice();
+        pawn stad = new pawn();
         KeyboardState prevStatekeyboard, curStatekeyboard;
+        Texture2D pix;
 
         enum GameState 
         {
@@ -65,15 +67,7 @@ namespace MonoGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //screen stuff
-            map.Generate(new int[,]{
-                {6,6,6,6,6,6,6},
-                {6,1,3,4,2,1,6},
-                {6,2,3,2,4,5,6},
-                {6,3,4,1,3,2,6},
-                {6,2,3,5,2,4,6},
-                {6,1,5,5,3,5,6},
-                {6,6,6,6,6,6,6},
-            }, 64);
+
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenHeight;
             graphics.ApplyChanges();
@@ -83,6 +77,9 @@ namespace MonoGame
             btnPlay.setPosition(new Vector2(600, 375));
 
             Tiles.Content = Content;
+
+            pix = new Texture2D(GraphicsDevice, 1, 1);
+            pix.SetData(new Color[] { Color.White });
 
             map.Generate(new int[,]{
                 {6,6,6,6,6,6,6},
@@ -95,6 +92,7 @@ namespace MonoGame
             },64);
 
             dieSet.LoadContent(Content);
+            stad.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -104,6 +102,7 @@ namespace MonoGame
         /// </summary>
         protected override void UnloadContent()
         {
+            pix.Dispose();
             // TODO: Unload any non ContentManager content here
         }
 
@@ -114,10 +113,13 @@ namespace MonoGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            mymouse.update();
+
             MouseState mouse = Mouse.GetState();
             curStatekeyboard = Keyboard.GetState();
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
 
             switch (CurrentGameState)
             {
@@ -163,9 +165,19 @@ namespace MonoGame
                     map.Draw(spriteBatch);
                     dieSet.Draw(spriteBatch);
                     break;
+
+            }
+            for (int x = 1; x < 7; x++)
+            {
+                for (int y = 1; y < 7; y++)
+                {
+                    Rectangle r = new Rectangle((x * 64) - 8, (y * 64) - 8, 16, 16);
+                    if (mymouse.GetRectangle().Intersects(r))
+                        spriteBatch.Draw(pix, r, new Color(0, 0, 50, 100));
+                }
             }
 
-            spriteBatch.End();
+                spriteBatch.End();
             base.Draw(gameTime);
         }
     }

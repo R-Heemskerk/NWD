@@ -39,11 +39,9 @@ namespace MonoGame
             //Places the button on the screen
             rectangle = new Rectangle((int)position.X, (int)position.Y, (int)size.X, (int)size.Y);
 
-            //Makes a small rectangle at position of the mouse
-            Rectangle mouseRectangle = new Rectangle(mouse.X, mouse.Y, 1, 1);
-
+           
             //If the two rectangles collide th button will light up
-            if (mouseRectangle.Intersects(rectangle))
+            if (mymouse.GetRectangle().Intersects(rectangle))
             {
                 //If the colour is equal to the colour in line 19 than the mouse is not intersect the rectangle
                 if (colour.A == 255) down = false;

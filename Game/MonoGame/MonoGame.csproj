@@ -45,6 +45,8 @@
     <Compile Include="Dice.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="mymouse.cs" />
+    <Compile Include="pawn.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tiles.cs" />

@@ -50,10 +50,11 @@ namespace MonoGame
         static Random r = new Random();
         public CollisionTiles(int i, Rectangle newRectangle)
         {
-
+            // hier wordt een nummer gegeven aan een tile
             getal = r.Next(2, 13);
             switch (i)
             {
+                // Hier wordt een plaatje op de tile afgedrukt
                 case 6:
                     texture = Content.Load<Texture2D>("ocean");
                     getal = -1;
